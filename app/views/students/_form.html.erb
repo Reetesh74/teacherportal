@@ -1,0 +1,25 @@
+<%= form_for([current_user, @student]) do |f| %>
+  <%= render "shared/error_messages", resource: @student  %>
+
+  <%= f.label :name %><br />
+  <div class="student-field">
+    <%= inline_svg('icons/user.svg', class: 'svg-icon') %>
+    <%= f.text_field :name, autofocus: true, class: 'no-border' %>
+  </div>
+
+  <%= f.label :subject %><br />
+  <div class="student-field">
+    <%= inline_svg('icons/text.svg', class: 'svg-icon') %>
+    <%= f.text_field :subject, class: 'no-border' %>
+  </div>
+
+  <%= f.label :marks %><br />
+  <div class="student-field">
+    <%= inline_svg('icons/mark.svg', class: 'svg-icon') %>
+    <%= f.number_field :marks, class: 'no-border' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit @student.new_record? ? "Add" : "Update" %>
+  </div>
+<% end %>

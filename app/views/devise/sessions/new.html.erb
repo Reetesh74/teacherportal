@@ -1,0 +1,51 @@
+<div class="login-container">
+  <h2 class="logo">tailwebs.</h2>
+  <div class="login-card">
+    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
+      <%= f.label :Username %><br />
+      <div class="field">
+        <%= inline_svg('icons/user.svg', class: 'svg-icon') %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Username" %>
+      </div>
+
+      <%= f.label :Password %><br />
+      <div class="field">
+        <%= inline_svg('icons/password.svg', class: 'svg-icon') %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", id: "password-field" %>
+        
+        <button type="button" id="toggle-password" onclick="togglePasswordVisibility()" class="toggle-button">
+          <%= inline_svg('icons/eye.svg', class: 'svg-icon-eye', id: "show-icon", style: "display: inline;") %>
+          <%= inline_svg('icons/hide-eye.svg', class: 'svg-icon-eye', id: "hide-icon", style: "display: none;") %>
+        </button>
+      </div>
+
+      <div class="devise-links">
+        <%= render "devise/shared/links" %>
+      </div>
+
+      <div class="actions" id="user-action">
+        <%= f.submit "Login" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  function togglePasswordVisibility() {
+    const passwordField = document.getElementById("password-field");
+    const showIcon = document.getElementById("show-icon");
+    const hideIcon = document.getElementById("hide-icon");
+    
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+      showIcon.style.display = "none";
+      hideIcon.style.display = "inline";
+    } else {
+      passwordField.type = "password";
+      showIcon.style.display = "inline";
+      hideIcon.style.display = "none";
+    }
+  }
+</script>

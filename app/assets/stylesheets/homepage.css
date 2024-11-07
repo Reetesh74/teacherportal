@@ -1,0 +1,104 @@
+.container_main {
+  background-color: #ccc;
+  height: 92vh;
+}
+
+.container {
+  width: 95%;
+  margin: 3px auto;
+  margin-left: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  color: #888;
+  padding: 10px;
+  font-weight: normal;
+}
+
+tbody td {
+  padding: 6px;
+  border-top: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.profile-initials {
+  background-color: #007bff;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.toggle-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle-button .svg-icon-home {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+}
+
+.toggle-button:hover .svg-icon {
+  fill: #007bff;
+}
+
+.action-buttons-hidden {
+  display: none;
+  border: 1px solid rgb(3, 3, 3);
+  width: 87px;
+  height: 54px;
+  border-radius: 3px;
+}
+
+.action-buttons-hidden a,
+.action-buttons-hidden button {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.action-buttons-hidden button {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+}
+
+.add-button {
+  display: inline-block;
+  margin: 5px 20px 5px;
+  padding: 10px 20px;
+  background-color: rgb(3, 3, 3);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #555;
+}

@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <%#= link_to 'tailweds.', root_path, class: 'navbar-item-logo' %>
+    <%= link_to 'tailweds.', user_signed_in? ? user_students_path(current_user) : root_path, class: 'navbar-item-logo' %>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to 'Home', user_signed_in? ? user_students_path(current_user) : root_path, class: 'navbar-item' %>
+    </div>
+
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+      <%= button_to("Logout", destroy_user_session_path, method: :delete, class: 'navbar-item no-style') %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+
