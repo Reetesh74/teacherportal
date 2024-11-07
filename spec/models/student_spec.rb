@@ -1,11 +1,8 @@
-# spec/models/student_spec.rb
 require 'rails_helper'
 
 RSpec.describe Student, type: :model do
-  # Association Test
   it { should belong_to(:user) }
 
-  # Validation Tests
   context 'validations' do
     it 'is valid with valid attributes' do
       student = build(:student)
@@ -41,11 +38,5 @@ RSpec.describe Student, type: :model do
       expect(student).not_to be_valid
       expect(student.errors[:marks]).to include("must be a number between 0 and 100")
     end
-
-    # it 'is invalid with non-integer marks' do
-    #   student = build(:student, marks: 85.5)
-    #   expect(student).not_to be_valid
-    #   expect(student.errors[:marks]).to include("must be an integer")
-    # end
   end
 end

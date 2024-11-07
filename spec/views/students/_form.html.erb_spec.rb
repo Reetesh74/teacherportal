@@ -1,14 +1,12 @@
-# spec/views/students/_form.html.erb_spec.rb
-
 require 'rails_helper'
 
 RSpec.describe "students/_form.html.erb", type: :view do
-  let(:user) { create(:user) } # Assuming you have a factory for user
-  let(:student) { build(:student, user: user) } # Assuming the student belongs to the user
+  let(:user) { create(:user) }
+  let(:student) { build(:student, user: user) }
 
   before do
-    sign_in user # Sign in the user before rendering the view
-    assign(:student, student) # Assign student to the view
+    sign_in user
+    assign(:student, student)
   end
 
   context "when rendering the form" do

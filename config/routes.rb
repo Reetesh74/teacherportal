@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   get "manifest.json" => "pwa#manifest", as: :pwa_manifest
 
   match "*unmatched", to: "application#render_404", via: :all, constraints: lambda { |req|
-  !req.path.start_with?("/students") && !req.path.start_with?("/manifest", "/service-worker")
+    !req.path.start_with?("/students") && !req.path.start_with?("/manifest", "/service-worker")
   }
+
   devise_scope :user do
     root "devise/sessions#new"
   end

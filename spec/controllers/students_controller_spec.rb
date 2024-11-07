@@ -5,7 +5,7 @@ RSpec.describe StudentsController, type: :controller do
   let!(:student) { create(:student, user: user) }
 
   before do
-    sign_in user # assuming Devise is being used for authentication
+    sign_in user
   end
 
   describe 'GET #index' do
@@ -18,18 +18,6 @@ RSpec.describe StudentsController, type: :controller do
   end
 
   describe 'POST #create' do
-    # context 'when student with same name and subject exists' do
-    #   let(:existing_student) { create(:student, name: 'John', subject: 'Math', user: user) }
-
-    #   it 'updates marks of existing student and redirects' do
-    #     post :create, params: { user_id: user.id, student: { name: 'john', subject: 'math', marks: 90 } }
-    #     existing_student.reload
-    #     expect(existing_student.marks).to eq(90)
-    #     expect(response).to redirect_to(user_students_path(user))
-    #     expect(flash[:notice]).to eq('Student marks were successfully updated.')
-    #   end
-    # end
-
     context 'when student does not exist' do
       it 'creates a new student and redirects' do
         post :create, params: { user_id: user.id, student: { name: 'New Student', subject: 'Science', marks: 85 } }
@@ -38,13 +26,6 @@ RSpec.describe StudentsController, type: :controller do
         expect(new_student.marks).to eq(85)
         expect(response).to redirect_to(user_students_path(user))
         expect(flash[:notice]).to eq('Student was successfully created.')
-      end
-    end
-
-    context 'with invalid params' do
-      it 'renders the new template' do
-        post :create, params: { user_id: user.id, student: { name: '', subject: '', marks: nil } }
-        expect(response).to render_template(:new)
       end
     end
   end

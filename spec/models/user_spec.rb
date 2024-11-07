@@ -1,11 +1,8 @@
-# spec/models/user_spec.rb
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # Association Test
   it { should have_many(:students) }
 
-  # Validation Tests
   context 'validations' do
     it 'is valid with valid attributes' do
       user = build(:user)
